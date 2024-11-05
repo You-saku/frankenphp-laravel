@@ -10,5 +10,6 @@ RUN install-php-extensions \
 	opcache
 
 COPY . /app
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ENTRYPOINT ["php", "artisan", "octane:frankenphp"]
