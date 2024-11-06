@@ -8,3 +8,14 @@ services:
     volumes:
       - .:/app
     tty: true
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: develop
+    volumes:
+      - frankenphp-db-data:/var/lib/mysql
+volumes:
+  frankenphp-db-data:
